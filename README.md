@@ -30,7 +30,7 @@ The project provides a modular and flexible way to manage validation in desktop 
 
 ## Usage
 
-The localization manager (lm) can be loaded using the function *require()*:
+The validation manager (vm) can be loaded using the function *require()*:
 
 ```lua
 local vm = require("ecluart.vm") 
