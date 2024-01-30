@@ -1,4 +1,4 @@
--- Defines a configuration management module.
+-- Defines a validation management module.
 local vm = {}
 
 -- Checks if the parameter is a valid child widget.
@@ -63,18 +63,15 @@ end
 -- Performs validation checks for each widget.
 -- apply() -> none
 function ValidationManager:apply()
-  local errorMessage = {}
+  self.isvalid = true
+  self.message = {}
 
   for _, child in pairs(self.children) do
     local validationResult = child.rule(child.widget[child.property])
     if not validationResult then
-      table.insert(errorMessage, child.message)
+      table.insert(self.message, child.message)
+      self.isvalid = false
     end
-  end
-
-  if next(errorMessage) ~= nil then
-    self.message = errorMessage
-    self.isvalid = false
   end
 end
 
