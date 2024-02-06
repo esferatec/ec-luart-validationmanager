@@ -1,6 +1,6 @@
 # ec-luart-validationmanager
 
-The project is a validation management module written in Lua. It defines a ValidationManager object that handles validation of inputs in LuaRT desktop applications.
+The project is a validation management module written in Lua. It defines a ValidationManager object that handles validation of widgets in LuaRT desktop applications.
 
 ![Screenshot of the Regisatrtion Form](/readme.png)
 
@@ -10,7 +10,7 @@ The project is a validation management module written in Lua. It defines a Valid
 
 ## Features
 
-The project provides a modular and flexible way to manage validation in desktop applications. It allows for easy addition of widgets and their corresponding validation rule, as well as applying the error message. Several validation managers can be used in one application.
+The project provides a modular and flexible way to manage validation in desktop applications. It allows  easy addition of widgets and their corresponding validation rule, as well as applying the error message. Several validation managers can be used in one application.
 
 ## Installation
 

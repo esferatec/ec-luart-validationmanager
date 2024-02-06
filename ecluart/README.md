@@ -7,7 +7,7 @@ The code is a Lua module for managing validations. It defines a ValidationManage
 ```Lua
 ValidationManager() -> object
 ```
-This function initializes a new instance of the validation manager object. It returns the newly created object.
+The code above initializes a new instance of the validation manager object. It returns the newly created object.
 
 ## Method - add
 
