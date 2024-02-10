@@ -1,5 +1,5 @@
 -- Defines a validation management module.
-local vm = {}
+local vm = {} -- version 2.0
 
 -- Checks if the parameter is a valid child widget.
 -- isValidChild(parameter: any) -> boolean
