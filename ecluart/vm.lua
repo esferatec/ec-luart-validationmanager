@@ -65,6 +65,7 @@ function ValidationManager:apply()
 
   for _, child in pairs(self.children) do
     local validationResult = child.rule(child.widget[child.property])
+
     if not validationResult then
       table.insert(self.message, child.message)
       self.isvalid = false
