@@ -1,5 +1,5 @@
 -- Defines a validation management module.
-local vm = {} -- version 2025.04
+local vm = {} -- version 2025.11
 
 -- Checks if the parameter is a valid child widget.
 -- isValidChild(parameter: any) -> boolean
@@ -58,8 +58,8 @@ function ValidationManager:add(widget, property, rule, message)
 end
 
 -- Performs validation checks for each widget.
--- apply() -> none
-function ValidationManager:apply()
+-- validate() -> none
+function ValidationManager:validate()
   self.isvalid = true
   self.message = {}
 
