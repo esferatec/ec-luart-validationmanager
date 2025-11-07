@@ -19,14 +19,20 @@ end
 
 -- Checks if the parameter is a string type.
 -- isString(parameter: any) -> boolean
-local function isString(parameter)
+local function isStringType(parameter)
   return type(parameter) == "string"
 end
 
 -- Checks if the paramter is a function type.
 -- isFunction(parameter: any) -> boolean
-local function isFunction(parameter)
+local function isFunctionType(parameter)
   return type(parameter) == "function"
+end
+
+-- Checks if the parameter is a nil type.
+-- isNilType(parameter: any) -> boolean
+local function isNilType(parameter)
+  return type(parameter) == "nil"
 end
 
 -- Defines the validation manager object.
@@ -43,9 +49,9 @@ end
 -- add(widget: object, property: string, rule: function, message: string) -> none
 function ValidationManager:add(widget, property, rule, message)
   if not isValidChild(widget) then return end
-  if not isString(property) then return end
-  if not isFunction(rule) then return end
-  if not isString(message) then return end
+  if not isStringType(property) then return end
+  if not isFunctionType(rule) then return end
+  if not isStringType(message) then return end
 
   local newChild = {
     widget = widget,
@@ -66,7 +72,7 @@ function ValidationManager:validate()
   for _, child in pairs(self.children) do
     local validationResult = child.rule(child.widget[child.property])
 
-    if not validationResult then
+    if not isNilType(validationResult) then
       table.insert(self.message, child.message)
       self.isvalid = false
     end
