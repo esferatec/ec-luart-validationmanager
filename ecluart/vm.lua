@@ -29,12 +29,6 @@ local function isFunctionType(parameter)
   return type(parameter) == "function"
 end
 
--- Checks if the parameter is a nil type.
--- isNilType(parameter: any) -> boolean
-local function isNilType(parameter)
-  return type(parameter) == "nil"
-end
-
 -- Defines the validation manager object.
 local ValidationManager = Object({})
 
@@ -72,7 +66,7 @@ function ValidationManager:validate()
   for _, child in pairs(self.children) do
     local validationResult = child.rule(child.widget[child.property])
 
-    if not isNilType(validationResult) then
+    if not validationResult then
       table.insert(self.message, child.message)
       self.isvalid = false
     end
