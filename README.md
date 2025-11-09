@@ -46,7 +46,7 @@ Initializes a new validation manager instance.
 ValidationManager:add(widget: object, property: string, rule: function, message: string) -> none
 ```
 
-Adds a widget, property, validation rule and error message.
+Adds a widget, widget property, validation rule and error message.
 
 ## Method - validate
 

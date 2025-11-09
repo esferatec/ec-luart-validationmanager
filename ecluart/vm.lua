@@ -5,16 +5,16 @@ local vm = {} -- version 2025.11
 -- isValidChild(parameter: any) -> boolean
 local function isValidChild(parameter)
   local invalidTypes = {
-    "nil",
-    "boolean",
-    "number",
-    "string",
-    "userdata",
-    "function",
-    "thread"
+    ["nil"] = true,
+    ["boolean"] = true,
+    ["number"] = true,
+    ["string"] = true,
+    ["userdata"] = true,
+    ["function"] = true,
+    ["thread"] = true
   }
 
-  return not table.concat(invalidTypes, ","):find(type(parameter))
+  return not invalidTypes[type(parameter)]
 end
 
 -- Checks if the parameter is a string type.
@@ -39,13 +39,14 @@ function ValidationManager:constructor()
   self.children = {}
 end
 
--- Adds a widget, property, validation rule and error message.
+-- Adds a widget, widget property, validation rule and error message.
 -- add(widget: object, property: string, rule: function, message: string) -> none
 function ValidationManager:add(widget, property, rule, message)
   if not isValidChild(widget) then return end
   if not isStringType(property) then return end
   if not isFunctionType(rule) then return end
   if not isStringType(message) then return end
+  if property == "" then return end
 
   local newChild = {
     widget = widget,
